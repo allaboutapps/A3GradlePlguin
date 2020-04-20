@@ -5,9 +5,15 @@ import org.gradle.api.Project
 import org.gradle.api.logging.Logger
 import org.gradle.api.tasks.Copy
 
+class A3GradlePluginExtension {
+    int baseVersionCode = 0
+}
+
 class A3GradlePlugin implements Plugin<Project> {
 
     void apply(Project target) {
+
+        def extension = project.extensions.create('a3plugin', A3GradlePluginExtension)
 
         def unsigned = false
 
@@ -15,7 +21,7 @@ class A3GradlePlugin implements Plugin<Project> {
         def gitVersionName = extractVersionName(target.logger, target.projectDir)
 
         target.android.defaultConfig {
-            versionCode gitVersionCode
+            versionCode extension.baseVersionCode + gitVersionCode
             versionName gitVersionName
         }
 
