@@ -41,3 +41,20 @@ This plugin enables us (aaa) to facilitate our internal test and release workflo
 
 * have `git` installed and on your path
 * specify `keyStore` in your global `gradle.properties` with the path to a shared debug key
+
+## Configuration
+
+Configuration is done via the object `a3plugin`.
+
+The final `versionCode` will be the number of commits + the `baseVersionCode` property.  
+By default, this property is `0`.
+
+```groovy
+a3plugin.baseVersionCode = 64
+
+// or
+
+a3plugin {
+  baseVersionCode = 64
+}
+```
