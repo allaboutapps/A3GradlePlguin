@@ -21,11 +21,13 @@ This plugin enables us (aaa) to facilitate our internal test and release workflo
 
 * **`neverBuildRelease`** This option for flavors lets you exclude a flavor from release builds, e.g. your development or staging environments.
 
-      productFlavors {
-        development {
-          ext.neverBuildRelease = true
-        }
-      }
+  ```groovy
+  productFlavors {
+    development {
+      ext.neverBuildRelease = true
+    }
+  }
+  ```
 
 * **APK renaming** We use a consistent naming for our artifacts:  
 `{name}-{variant}{split}-vc{versionCode}-{versionName}`
